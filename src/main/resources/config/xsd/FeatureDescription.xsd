@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xs:schema version="1.0" 
+           xmlns:xs="http://www.w3.org/2001/XMLSchema"
+           xmlns:jaxb="http://java.sun.com/xml/ns/jaxb"
+           jaxb:version="1.0"
+           elementFormDefault="qualified">
+
+    <xs:element name="featureTre1e" type="FeatureTreeElement" />
+
+    <xs:complexType name="FeatureTreeElement">
+        <xs:annotation>
+            <xs:appinfo>
+			
+                <jaxb:class name="FeatureTree" />
+            </xs:appinfo>
+        </xs:annotation>
+        <xs:sequence>
+            <xs:element name="Feature" type="FeatureElement">
+                <xs:annotation>
+                    <xs:appinfo>
+                        <jaxb:property name="Features" />
+                    </xs:appinfo>
+                </xs:annotation>
+            </xs:element>
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FeatureElement" mixed="true">
+        <xs:sequence>
+            <xs:element name="oLen" type="FeatureObjectLength"
+                        maxOccurs="unbounded" />
+        </xs:sequence>
+    </xs:complexType>
+
+    <xs:complexType name="FeatureObjectLength">
+        <xs:sequence>
+            <xs:element name="val" type="xs:anySimpleType" maxOccurs="unbounded" />
+        </xs:sequence>
+        <xs:attribute name="num" type="xs:integer"></xs:attribute>
+    </xs:complexType>
+</xs:schema>

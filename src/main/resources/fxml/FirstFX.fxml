@@ -1,0 +1,324 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.text.*?>
+<?import javafx.scene.image.*?>
+<?import java.lang.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+<?import javafx.scene.layout.BorderPane?>
+
+<BorderPane onMouseDragOver="#sliderAction" prefHeight="974.0" prefWidth="1322.0" xmlns="http://javafx.com/javafx/8" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.inf_schauer.javaCvGui.gui.FXController">
+   <bottom>
+      <HBox prefHeight="28.0" prefWidth="778.0" BorderPane.alignment="CENTER">
+         <children>
+            <HBox prefHeight="100.0" prefWidth="200.0">
+               <children>
+                  <Button fx:id="but_back" mnemonicParsing="false" onAction="#imageBack" text="UNDO" />
+                  <Button fx:id="but_forward" mnemonicParsing="false" onAction="#imageForward" text="REDO" />
+                  <Button fx:id="but_resetImageStack" mnemonicParsing="false" onAction="#resetImageStack" text="ResetStack" />
+               </children>
+            </HBox>
+         </children>
+      </HBox>
+   </bottom>
+   <left>
+      <HBox prefHeight="943.0" prefWidth="1315.0" BorderPane.alignment="CENTER">
+         <children>
+            <VBox minWidth="200.0" prefHeight="943.0" prefWidth="272.0">
+               <children>
+                  <TextField fx:id="text_action" />
+                  <Label fx:id="label_slider" text="Slider" />
+                  <TextArea fx:id="text_console" minWidth="200.0" prefHeight="213.0" prefWidth="200.0" />
+                  <HBox prefHeight="15.0" prefWidth="200.0" />
+                  <GridPane prefHeight="86.0" prefWidth="200.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="but_showSelected" mnemonicParsing="false" onAction="#showSelectedImage" text="ShowSelected" />
+                        <Button fx:id="but_showTempl" mnemonicParsing="false" onAction="#showSelectedTempl" text="ShowTempl" GridPane.columnIndex="1" />
+                        <Button fx:id="but_showResult" mnemonicParsing="false" onAction="#showResultImage" text="Show Result" GridPane.rowIndex="1" />
+                        <Button fx:id="but_resetResult" mnemonicParsing="false" onAction="#resetResult" text="Reset Result" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="but_choosepic" mnemonicParsing="false" onAction="#selectImageFile" text="Choose SrcFile" GridPane.rowIndex="2" />
+                        <Button fx:id="but_saveImage" mnemonicParsing="false" onAction="#saveImage" text="Save" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="but_choosePdf" mnemonicParsing="false" onAction="#choosePdf" text="ChoosePdf" />
+                        <Button fx:id="but_firstPixel" mnemonicParsing="false" onAction="#firstPixel" text="First Pixel" GridPane.rowIndex="1" />
+                        <Button fx:id="but_smooth" mnemonicParsing="false" onAction="#smooth" text="JSmooth" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="but_amplify" mnemonicParsing="false" onAction="#amplify" text="Amplify" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="but_getTopLeft" mnemonicParsing="false" onAction="#topLeft" text="topLeft" GridPane.rowIndex="2" />
+                        <Button fx:id="but_chooseTempl" mnemonicParsing="false" onAction="#selectImageTemplFile" text="ChooseTemplate" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="but_filterHsv" mnemonicParsing="false" onAction="#filterHsv" text="FilterHsv" />
+                        <Button fx:id="but_filterHsvNeg" mnemonicParsing="false" onAction="#filterHsvNegative" text="FilterHsvNeg" GridPane.columnIndex="1" />
+                        <Button fx:id="but_filterCluster" mnemonicParsing="false" onAction="#filterCluster" text="FilterCluster" GridPane.rowIndex="1" />
+                        <Button fx:id="but_filterHLine" mnemonicParsing="false" onAction="#filterHLine" text="Filter H Line" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="but_countPixel" mnemonicParsing="false" onAction="#countPixel" text="CountPixel" GridPane.rowIndex="2" />
+                        <Button fx:id="but_toGrey" mnemonicParsing="false" onAction="#toGrey" text="ToGrey" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="but_binarize" mnemonicParsing="false" onAction="#binarize" text="Binarize" GridPane.columnIndex="1" />
+                        <Button fx:id="but_binarizeAuto" mnemonicParsing="false" onAction="#binarizeAuto" text="BinarizeAuto" />
+                        <Button fx:id="but_meanSquareDiv" mnemonicParsing="false" onAction="#meanSquareDiv" text="MSquareHis" GridPane.rowIndex="1" />
+                        <Button fx:id="but_subImage" mnemonicParsing="false" onAction="#subImage" text="SubImage" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="but_checkBox" mnemonicParsing="false" onAction="#checkBox" text="CheckBox" GridPane.rowIndex="2" />
+                        <Button fx:id="but_replaceHLines" mnemonicParsing="false" onAction="#replaceHLines" text="repHLine" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <HBox prefHeight="100.0" prefWidth="200.0" GridPane.rowIndex="3">
+                           <children>
+                              <Button fx:id="but_translate" mnemonicParsing="false" onAction="#translate" text="Translate" />
+                           </children>
+                        </HBox>
+                        <Button fx:id="but_batch" mnemonicParsing="false" onAction="#batch" text="Batch" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                     </children>
+                  </GridPane>
+                  <HBox prefHeight="37.0" prefWidth="200.0">
+                     <children>
+                        <TextField fx:id="tf_v" prefHeight="25.0" prefWidth="63.0" />
+                        <Slider fx:id="slider_v" blockIncrement="1.0" prefHeight="14.0" prefWidth="134.0" />
+                     </children>
+                  </HBox>
+                  <TextField fx:id="tf_tess" text="eng+eng2" />
+                  <ScrollPane prefHeight="200.0" prefWidth="200.0">
+                     <content>
+                        <VBox prefHeight="200.0" prefWidth="100.0">
+                           <children>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Slider fx:id="slider_h2" max="255.0" orientation="VERTICAL" />
+                                          <TextField fx:id="tf_r2" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Slider fx:id="slider_s2" max="255.0" orientation="VERTICAL" />
+                                          <TextField fx:id="tf_g2" minWidth="50.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Slider fx:id="slider_v2" max="255.0" orientation="VERTICAL" />
+                                          <TextField fx:id="tf_b2" minWidth="50.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                              <HBox prefHeight="100.0" prefWidth="200.0">
+                                 <children>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Slider fx:id="slider_h1" max="255.0" orientation="VERTICAL" />
+                                          <TextField fx:id="tf_r1" minWidth="50.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Slider fx:id="slider_s1" max="255.0" orientation="VERTICAL" />
+                                          <TextField fx:id="tf_g1" minWidth="50.0" />
+                                       </children>
+                                    </VBox>
+                                    <VBox prefHeight="200.0" prefWidth="100.0">
+                                       <children>
+                                          <Slider fx:id="slider_v1" max="255.0" orientation="VERTICAL" />
+                                          <TextField fx:id="tf_b1" minWidth="50.0" />
+                                       </children>
+                                    </VBox>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                     </content>
+                  </ScrollPane>
+                  <HBox prefHeight="23.0" prefWidth="200.0">
+                     <children>
+                        <Label text="x:" />
+                        <Label fx:id="label_x" text="0" />
+                        <Label text="y:" />
+                        <Label fx:id="label_y" text="0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="18.0" prefWidth="200.0">
+                     <children>
+                        <Label text="sel X: " />
+                        <Label fx:id="label_selX" text="0" />
+                        <Label text="sel Y: " />
+                        <Label fx:id="label_selY" text="0" />
+                     </children>
+                  </HBox>
+                  <HBox prefHeight="16.0" prefWidth="200.0">
+                     <children>
+                        <Label text="sel W:" />
+                        <Label fx:id="label_selW" text="0" />
+                        <Label text="sel H:" />
+                        <Label fx:id="label_selH" text="0" />
+                     </children>
+                  </HBox>
+               </children>
+            </VBox>
+            <ScrollPane fx:id="scrollPane_currentFrame" fitToHeight="true" fitToWidth="true" onMouseClicked="#rightClick" prefHeight="943.0" prefWidth="1020.0">
+               <content>
+                  <ImageView fx:id="currentFrame" onMouseClicked="#rightClick" onMouseDragged="#mouseDragged" onMouseMoved="#updateImagePos" onMousePressed="#dragStarted" onMouseReleased="#dragFinished" pickOnBounds="true" preserveRatio="true" />
+               </content>
+            </ScrollPane>
+            <VBox alignment="TOP_RIGHT" prefHeight="946.0" prefWidth="252.0">
+               <children>
+                  <GridPane prefHeight="107.0" prefWidth="174.0">
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="but_upturn" mnemonicParsing="false" onAction="#upturn" text="Upturn" GridPane.columnIndex="1" />
+                        <Button fx:id="but_align" mnemonicParsing="false" onAction="#align" text="Align" />
+                        <Button fx:id="but_alignReg" mnemonicParsing="false" onAction="#alignReg" text="AlignReg" GridPane.rowIndex="1" />
+                        <Button fx:id="but_regLine" mnemonicParsing="false" onAction="#regLine" text="RegLine" GridPane.rowIndex="2" />
+                        <Button fx:id="but_alignProd" mnemonicParsing="false" onAction="#alignProd" text="AlignProd" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="but_alignProdWeight" mnemonicParsing="false" onAction="#alignProdWeight" text="AlignWeight" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                     </children>
+                  </GridPane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="but_filterHSVColor" mnemonicParsing="false" onAction="#filterHSVColor" text="fHSVC" />
+                        <Button fx:id="but_filterHSVColorNeg" mnemonicParsing="false" onAction="#filterHSVColorNeg" text="fHSVCNeg" GridPane.columnIndex="1" />
+                        <Button fx:id="but_centerOfMass" mnemonicParsing="false" onAction="#calcCenterOfMass" text="CntrMass" GridPane.rowIndex="1" />
+                        <Button fx:id="but_resize" mnemonicParsing="false" onAction="#resize" text="Resize" GridPane.rowIndex="2" />
+                        <Button fx:id="but_coherence" mnemonicParsing="false" onAction="#coherence" text="Coherent" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="but_edgeExtraction" mnemonicParsing="false" onAction="#edgeExtraction" text="Edge" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <TextField fx:id="text_binarizeMin" GridPane.rowIndex="1" />
+                        <TextField fx:id="text_binarizeMax" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="but_binarizeManual" mnemonicParsing="false" onAction="#binarizeManual" text="BinarizeM" />
+                        <Button fx:id="but_pointsFromLeft" mnemonicParsing="false" onAction="#pointsFromLeft" text="PointsL" GridPane.rowIndex="2" />
+                        <Button fx:id="but_centersOfMass" mnemonicParsing="false" onAction="#centersOfMass" text="cOmass" GridPane.columnIndex="1" />
+                     </children>
+                  </GridPane>
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="but_readBarcode" mnemonicParsing="false" onAction="#readBarcode" text="Read Barcode" GridPane.rowIndex="2" />
+                        <Button fx:id="but_justOcr" mnemonicParsing="false" onAction="#doJustOcr" text="Just Ocr" />
+                        <Button fx:id="but_ocrNum" mnemonicParsing="false" onAction="#doOcrNum" text="OcrNum" GridPane.columnIndex="1" />
+                        <Button fx:id="but_ocrLetter" mnemonicParsing="false" onAction="#doOcrLetter" text="OcrLetter" GridPane.rowIndex="1" />
+                        <Button fx:id="but_procCheckbox" mnemonicParsing="false" onAction="#processCheckbox" text="Process CB" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="but_objExtraction" mnemonicParsing="false" onAction="#extractObjects" text="ObjExtract" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="but_segmentation" mnemonicParsing="false" onAction="#doSegmentation" text="Seg" GridPane.rowIndex="3" />
+                        <Button fx:id="but_breadth" mnemonicParsing="false" onAction="#doBreadth" text="Breadth" GridPane.rowIndex="4" />
+                        <TextField fx:id="tf_breadth" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="but_setColorBelowValue" mnemonicParsing="false" onAction="#setColorBelowValue" text="CBelowVal" GridPane.rowIndex="5" />
+                        <Button fx:id="but_ocrHand" mnemonicParsing="false" onAction="#doOcrHand" text="OcrHand" GridPane.rowIndex="6" />
+                     </children>
+                  </GridPane>
+                  <Separator prefWidth="200.0" />
+                  <GridPane>
+                    <columnConstraints>
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                      <ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+                    </columnConstraints>
+                    <rowConstraints>
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                      <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                        <RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+                    </rowConstraints>
+                     <children>
+                        <Button fx:id="but_justify" mnemonicParsing="false" onAction="#doJustify" text="Justify" />
+                        <Button fx:id="button" alignment="CENTER" mnemonicParsing="false" onAction="#startCamera" text="Start Camera" GridPane.columnIndex="1" />
+                        <Button fx:id="but_blur" mnemonicParsing="false" onAction="#doBlur" text="Blur" GridPane.rowIndex="1" />
+                        <Button fx:id="but_sharp" mnemonicParsing="false" onAction="#doSharp" text="Sharp" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                        <Button fx:id="but_doDiff2" mnemonicParsing="false" onAction="#doDiff2" text="Diff2" GridPane.rowIndex="2" />
+                        <Button fx:id="but_filter" mnemonicParsing="false" onAction="#doFilter" text="Filter" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                        <Button fx:id="but_doDefault" mnemonicParsing="false" onAction="#doDefault" text="Default Action" GridPane.rowIndex="3" />
+                        <Button fx:id="but_diff" mnemonicParsing="false" onAction="#doDiff" text="Diff" GridPane.columnIndex="1" GridPane.rowIndex="3" />
+                        <Button fx:id="but_rotate" mnemonicParsing="false" onAction="#rotate" text="Rotate" GridPane.columnIndex="1" GridPane.rowIndex="4" />
+                        <Button fx:id="but_adjust" mnemonicParsing="false" onAction="#adjust" text="Adjust" GridPane.rowIndex="4" />
+                     </children>
+                  </GridPane>
+                  <Slider fx:id="slider" max="255.0" minorTickCount="1" onDragOver="#sliderAction" prefHeight="18.0" prefWidth="214.0" />
+               </children>
+            </VBox>
+         </children>
+      </HBox>
+   </left>
+</BorderPane>

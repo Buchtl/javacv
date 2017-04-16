@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<config>
+	<threshold>1130</threshold>
+	<ppi>96</ppi>
+	<smoothCnt>2</smoothCnt>
+</config>

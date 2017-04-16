@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<cf:featureTree xmlns:cf="http://www.example.org/FeatureDescription/"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.example.org/FeatureDescription/ FeatureDescription.xsd ">
+	<oLen num="3">
+		<val>Opa</val>
+		<val>Oma</val>
+	</oLen>
+	<oLen num="9">
+		<val>Großvater</val>
+		<val>Großmutter</val>
+	</oLen>
+</cf:featureTree>
