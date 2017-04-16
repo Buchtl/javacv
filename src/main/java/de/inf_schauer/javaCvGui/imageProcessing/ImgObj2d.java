@@ -9,7 +9,6 @@ import java.util.LinkedList;
 import java.util.Set;
 
 import de.inf_schauer.javaCvGui.interfaces.I_ImgObj2d;
-import de.inf_schauer.javaCvGui.utils.Utils;
 
 public class ImgObj2d implements I_ImgObj2d {
 
@@ -192,7 +191,7 @@ public class ImgObj2d implements I_ImgObj2d {
 
     @Override
     public BufferedImage getSimpleImage(Color color, Color bgColor, int margin) {
-        if(margin != lastMargin){
+        if (margin != lastMargin) {
             lastMargin = margin;
             isImageOutdated = true;
         }

@@ -5,42 +5,41 @@ import java.awt.image.BufferedImage;
 
 public class NeighborhoodOps {
 
-	/**
-	 * 
-	 * @param img
-	 *            (Binarized)
-	 * @param area
-	 * @param Threshold
-	 * @return true if PixelCnt above threshold
-	 */
-	public static boolean checkArea(BufferedImage img, Rectangle area, int Threshold) {
-		int img_width = img.getWidth();
-		int img_height = img.getHeight();
-		int endX = area.x + area.width;
-		int endY = area.y + area.height;
-		
-		int blackPixelCnt = 0;
-		int currentRgb = 0;
+    /**
+     *
+     * @param img (Binarized)
+     * @param area ...
+     * @param Threshold ...
+     * @return true if PixelCnt above threshold
+     */
+    public static boolean checkArea(BufferedImage img, Rectangle area, int Threshold) {
+        int img_width = img.getWidth();
+        int img_height = img.getHeight();
+        int endX = area.x + area.width;
+        int endY = area.y + area.height;
 
-		if (endX > img_width) {
-			endX = img_width;
-		}
-		if (endY > img_height) {
-			endY = img_height;
-		}
+        int blackPixelCnt = 0;
+        int currentRgb = 0;
 
-		for (int i = area.x; i < endX; i++) {
-			for (int j = area.y; j < endY; j++) {
+        if (endX > img_width) {
+            endX = img_width;
+        }
+        if (endY > img_height) {
+            endY = img_height;
+        }
 
-				currentRgb = ColorUtils.toPlainRgb(img.getRGB(i, j));
+        for (int i = area.x; i < endX; i++) {
+            for (int j = area.y; j < endY; j++) {
 
-				if (currentRgb != 0xFFFFFF) {
-					blackPixelCnt++;
-				}
+                currentRgb = ColorUtils.toPlainRgb(img.getRGB(i, j));
 
-			}
-		}
-		return blackPixelCnt >= Threshold;
-	}
+                if (currentRgb != 0xFFFFFF) {
+                    blackPixelCnt++;
+                }
+
+            }
+        }
+        return blackPixelCnt >= Threshold;
+    }
 
 }

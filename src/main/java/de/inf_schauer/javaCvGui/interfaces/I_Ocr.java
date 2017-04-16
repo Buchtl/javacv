@@ -12,8 +12,8 @@ import java.awt.image.BufferedImage;
  * @author Christian Schauer <christian.schauer at interface-ag.de>
  */
 public interface I_Ocr {
-    
+
     public String detect(BufferedImage bi);
-    
-    public String detectNumber(BufferedImage bi);   
+
+    public String detectNumber(BufferedImage bi);
 }

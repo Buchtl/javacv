@@ -17,8 +17,6 @@ import java.util.Map;
 
 import javax.imageio.ImageIO;
 
-import ch.qos.logback.classic.Logger;
-
 public class ImProc {
 
     public static final String MINX = "minX";
@@ -37,9 +35,10 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param v
-     * @return
+     * @param bi ...
+     * @param minS ...
+     * @param maxV ...
+     * @return ...
      */
     public static BufferedImage binarize(BufferedImage bi, int minS, int maxV) {
         BufferedImage result = new BufferedImage(bi.getWidth(), bi.getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -68,9 +67,10 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param v
-     * @return
+     * @param bi ...
+     * @param minS ...
+     * @param maxV ...
+     * @return ...
      */
     public static BufferedImage binarize2(BufferedImage bi, int minS, int maxV) {
         BufferedImage result = new BufferedImage(bi.getWidth(), bi.getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -99,8 +99,8 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static BufferedImage createBinarizedAuto(BufferedImage bi) {
         BufferedImage output = new BufferedImage(bi.getWidth(), bi.getHeight(), bi.getType());
@@ -123,7 +123,7 @@ public class ImProc {
 
     /**
      *
-     * @param bi
+     * @param bi ...
      */
     public static void binarizeAuto(BufferedImage bi) {
         int avg = ColorUtils.getAverageRGB(bi);
@@ -143,8 +143,8 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static int countBlackPixel(BufferedImage bi) {
         return countBlackPixel(bi, null);
@@ -152,9 +152,9 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param area
-     * @return
+     * @param bi ...
+     * @param area ...
+     * @return ...
      */
     public static int countBlackPixel(BufferedImage bi, Rectangle area) {
         int result = 0;
@@ -182,8 +182,9 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @param dim ...
+     * @return ...
      */
     public static BufferedImage smooth(BufferedImage bi, int dim) {
         BufferedImage result = new BufferedImage(bi.getWidth(), bi.getHeight(), BufferedImage.TYPE_INT_RGB);
@@ -233,9 +234,10 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param subRegion
-     * @param soll
+     * @param bi ...
+     * @param subRegion ...
+     * @param soll ...
+     * @return  ...
      */
     public static BufferedImage align(BufferedImage bi, Rectangle subRegion, Point soll) {
         BufferedImage subImg = binarize(bi.getSubimage(subRegion.x, subRegion.y, subRegion.width, subRegion.height), 40,
@@ -251,8 +253,8 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static double alignmentRadian(BufferedImage bi) {
         BufferedImage tmpImg = ImUtils.copyImage(bi);
@@ -275,9 +277,9 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param threshold
-     * @return
+     * @param bi ...
+     * @param threshold ...
+     * @return ...
      */
     public static int getAlignment(BufferedImage bi, int threshold) {
         Map<String, Point> points = getMinMaxXY(bi);
@@ -296,8 +298,10 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @param offsetTop ...
+     * @param offsetBottom ...
+     * @return ...
      */
     public static Rectangle extractId(BufferedImage bi, int offsetTop, int offsetBottom) {
         Point pStart = getMaxY(bi);
@@ -320,7 +324,8 @@ public class ImProc {
 
     /**
      *
-     * @param bi
+     * @param bi ...
+     * @return  ...
      */
     public static BufferedImage trimRegion(BufferedImage bi) {
         Map<String, Point> xtPoints = getMinMaxXY(bi);
@@ -337,9 +342,9 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param side
-     * @return
+     * @param bi ...
+     * @param side ...
+     * @return ...
      */
     public static BufferedImage getSide(BufferedImage bi, String side) {
         switch (side) {
@@ -360,9 +365,9 @@ public class ImProc {
 
     /**
      *
-     * @param bi
+     * @param bi ...
      * @param threshold unclean edges?
-     * @return
+     * @return ...
      */
     public static Point getTopLeft(BufferedImage bi, int threshold) {
         Map<String, Point> edgePoints = getMinMaxXY(bi);
@@ -383,9 +388,9 @@ public class ImProc {
 
     /**
      *
-     * @param bi
+     * @param bi ...
      * @param threshold unclean edges?
-     * @return
+     * @return ...
      */
     public static Point getTopRight(BufferedImage bi, int threshold) {
         Map<String, Point> edgePoints = getMinMaxXY(bi);
@@ -404,9 +409,10 @@ public class ImProc {
 
     /**
      *
-     * @param img
-     * @param radian
-     * @param left
+     * @param img ...
+     * @param radian ...
+     * @param right ...
+     * @return  ...
      */
     public static BufferedImage rotate(BufferedImage img, double radian, boolean right) {
         if (!right) {
@@ -442,11 +448,11 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static Map<String, Point> getMinMaxXY(BufferedImage bi) {
-        Map<String, Point> result = new HashMap<String, Point>();
+        Map<String, Point> result = new HashMap<>();
         Point minX = null;
         Point maxX = new Point(0, 0);
         Point minY = null;
@@ -483,8 +489,8 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static Point getMaxY(BufferedImage bi) {
         for (int y = bi.getHeight() - 1; y > 0; y--) {
@@ -499,10 +505,10 @@ public class ImProc {
 
     /**
      *
-     * @param bi
+     * @param bi ...
      */
     public static void firstPointsFromLeft(BufferedImage bi) {
-        List<Point> points = new ArrayList<>();
+        List<Point> points;
         points = getFirstPointsFromLeft(bi);
         List<Point> filteredPoints = filterPointsByMeanX(points, 20);
 
@@ -514,14 +520,14 @@ public class ImProc {
     /**
      * return true if correct alligned
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static boolean upturnNeeded(BufferedImage bi) {
 
         filterPixels(bi, new Dimension(15, 15), 6);
 
-        List<Point> points = new ArrayList<>();
+        List<Point> points;
         points = getFirstPointsFromLeft(bi);
         BufferedImage output = new BufferedImage(bi.getWidth(), bi.getHeight(), bi.getType());
         DrawingUtils.setColor(output, Color.WHITE);
@@ -575,8 +581,8 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static boolean isHorizontal(BufferedImage bi) {
         List<Point> points = getFirstPointsFromLeft(bi);
@@ -632,7 +638,7 @@ public class ImProc {
 
     /**
      *
-     * @param bi
+     * @param bi ...
      */
     public static void drawRegLine(BufferedImage bi) {
         List<Point> points = new ArrayList<>();
@@ -688,8 +694,8 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static double getRotation(BufferedImage bi) {
         List<Point> points = getFirstPointsFromLeft(bi);
@@ -730,8 +736,8 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static double alignmentTop(BufferedImage bi) {
         BufferedImage img = null;
@@ -757,10 +763,9 @@ public class ImProc {
 
     /**
      *
-     * @param points
-     * @param mean
-     * @param threshold
-     * @return
+     * @param points ...
+     * @param threshold ...
+     * @return ...
      */
     public static List<Point> filterPointsByMeanX(List<Point> points, double threshold) {
         List<Point> result = new ArrayList<>();
@@ -799,11 +804,11 @@ public class ImProc {
         }
         return points;
     }
-    
+
     public static List<Point> getFirstPointsFromLeftTopDown(BufferedImage bi) {
         return getFirstPointsFromLeftTopDown(bi, 0);
     }
-    
+
     public static List<Point> getFirstPointsFromLeftTopDown(BufferedImage bi, int offset) {
         List<Point> points = new ArrayList<>();
 
@@ -827,9 +832,9 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param r
-     * @param threshold
+     * @param bi ...
+     * @param r ...
+     * @param threshold ...
      */
     private static void filterPixels(BufferedImage bi, Dimension dim, int threshold) {
         int w = dim.width;
@@ -849,17 +854,16 @@ public class ImProc {
     }
 
     /**
-     * If negative is true, everything in range will be set white. If negative
-     * is false, everything outside the range will be set white.
+     * If negative is true, everything in range will be set white. If negative is false, everything outside the range will be set white.
      *
-     * @param bi
-     * @param h_min
-     * @param s_min
-     * @param v_min
-     * @param h_max
-     * @param s_max
-     * @param v_max
-     * @return
+     * @param bi ...
+     * @param h_min ...
+     * @param s_min ...
+     * @param v_min ...
+     * @param h_max ...
+     * @param s_max ...
+     * @param v_max ...
+     * @param negative ...
      */
     public static void filterHSV(BufferedImage bi, int h_min, int s_min, int v_min, int h_max, int s_max, int v_max,
             boolean negative) {
@@ -910,17 +914,16 @@ public class ImProc {
     }
 
     /**
-     * If negative is true, everything in range will be set white. If negative
-     * is false, everything outside the range will be set white.
+     * If negative is true, everything in range will be set white. If negative is false, everything outside the range will be set white.
      *
-     * @param bi
-     * @param h_min
-     * @param s_min
-     * @param v_min
-     * @param h_max
-     * @param s_max
-     * @param v_max
-     * @return
+     * @param bi ...
+     * @param h_min ...
+     * @param s_min ...
+     * @param v_min ...
+     * @param h_max ...
+     * @param s_max ...
+     * @param v_max ...
+     * @param remove ...
      */
     public static void filterHSVColor(BufferedImage bi, int h_min, int s_min, int v_min, int h_max, int s_max,
             int v_max, boolean remove) {
@@ -974,8 +977,8 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @return
+     * @param bi ...
+     * @return ...
      */
     public static Point calcCenterOfMass(BufferedImage bi) {
         int sumX = 0;
@@ -998,10 +1001,10 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param start
-     * @param output
-     * @param color
+     * @param bi ...
+     * @param start ...
+     * @param output ...
+     * @param color ...
      */
     public static void getCoherentPoints(BufferedImage bi, Point start, List<Point> output, Color color) {
         output.add(start);
@@ -1039,9 +1042,11 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param points
-     * @param color
+     * @param bi ...
+     * @param w ...
+     * @param h ...
+     * @param pixels ...
+     * @param color ...
      */
     public static void coherentPixels(BufferedImage bi, int w, int h, Point[] pixels, Color color) {
         boolean proceed = true;
@@ -1104,9 +1109,9 @@ public class ImProc {
 
     /**
      *
-     * @param points
-     * @param p
-     * @return
+     * @param points ...
+     * @param p ...
+     * @return ...
      */
     private static boolean containsPoint(Point[] points, Point p) {
         for (Point pTmp : points) {
@@ -1122,9 +1127,9 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param minLength
-     * @return
+     * @param bi ...
+     * @param minLength ...
+     * @return ...
      */
     public static BufferedImage extractEdges(BufferedImage bi, int minLength) {
         BufferedImage output = new BufferedImage(bi.getWidth(), bi.getHeight(), bi.getType());
@@ -1136,7 +1141,7 @@ public class ImProc {
                 int c2 = ColorUtils.toPlainRgb(bi.getRGB(x, y - 1));
 
                 int diff = c1 - c2;
-                
+
                 if (diff != 0) {
                     output.setRGB(x, y, Color.BLACK.getRGB());
                 } else {
@@ -1172,9 +1177,9 @@ public class ImProc {
 
     /**
      *
-     * @param bi
-     * @param value
-     * @param c
+     * @param bi ...
+     * @param maxVal ...
+     * @param c ...
      */
     public static void setColorForMaxHsvValue(BufferedImage bi, int maxVal, Color c) {
         float value = (float) maxVal / 255;

@@ -44,7 +44,6 @@ import de.inf_schauer.javaCvGui.interfaces.I_ImgObj2d;
 import de.inf_schauer.javaCvGui.interfaces.I_Ocr;
 import de.inf_schauer.javaCvGui.main.AppSingleton;
 import de.inf_schauer.javaCvGui.utils.Utils;
-import de.inf_schauer.javaCvGui.xml.Batch;
 import net.sourceforge.tess4j.*;
 
 import javafx.beans.value.ChangeListener;

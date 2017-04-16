@@ -11,33 +11,30 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 
 public class ImageTransformation {
-	
-	/**
-	 * 
-	 * @param bi
-	 * @param width
-	 * @param height
-	 * @return
-	 */
-	public static BufferedImage resize(BufferedImage bi, Dimension dim)
-	{
-		BufferedImage result = new BufferedImage(dim.width, dim.height, bi.getType());
-		Graphics2D g2 = result.createGraphics();
-		
-		g2.drawImage(bi, 0, 0, dim.width, dim.height, null);
-		g2.dispose();
-		
-		return result;
-	}
-        
-        
-        /**
-         * 
-         * @param image
-         * @param angle
-         * @return 
-         */
-        public static BufferedImage rotate(BufferedImage image, float angle) {
+
+    /**
+     *
+     * @param bi ...
+     * @param dim ...
+     * @return ...
+     */
+    public static BufferedImage resize(BufferedImage bi, Dimension dim) {
+        BufferedImage result = new BufferedImage(dim.width, dim.height, bi.getType());
+        Graphics2D g2 = result.createGraphics();
+
+        g2.drawImage(bi, 0, 0, dim.width, dim.height, null);
+        g2.dispose();
+
+        return result;
+    }
+
+    /**
+     *
+     * @param image ...
+     * @param angle ...
+     * @return ...
+     */
+    public static BufferedImage rotate(BufferedImage image, float angle) {
         float radianAngle = (float) Math.toRadians(angle);
 
         float sin = (float) Math.abs(Math.sin(radianAngle));
