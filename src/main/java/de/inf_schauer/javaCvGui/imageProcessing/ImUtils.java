@@ -33,7 +33,9 @@ public class ImUtils {
      */
     public static void writeImage(BufferedImage bi, String path) {
         try {
-            ImageIO.write(bi, "png", new File(path));
+            File file = new File(path);
+            file.mkdirs();
+            ImageIO.write(bi, "png", file);
         } catch (IOException e) {
             System.out.println(e.getMessage());
         }
