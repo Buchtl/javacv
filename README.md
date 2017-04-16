@@ -1,2 +1,2 @@
 # javacv
-MainClass = de.it_schauer.digiDoc.main.Main.java;
+MainClass = de.it_schauer.javaCvGui.main.Main.java;
